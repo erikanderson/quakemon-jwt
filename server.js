@@ -1,7 +1,20 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var bodyParser = require('body-parser');
+var express = require('express')
+    , morgan = require('morgan')
+    , config = require('./config')
+    , bodyParser = require('body-parser')
+    , app = express()
+    , passport = require('passport')
+    , LocalStrategy = require('passport-local')
+    , GoogleStrategy = require('passport-google')
+    , cors = require('cors'); 
 
-var app = express();
+app.use(cors());
 
-app.listen
+app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.json());
+app.use(bodyParser.json());
+
+
+
+app.listen(config.port);
