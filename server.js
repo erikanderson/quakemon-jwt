@@ -19,6 +19,7 @@ app.use(morgan('dev'));
 
 mongoose.connect(config.database);
 
+
 var apiRoutes = require('./lib/routes/api')(app, express);
 app.use('/api', apiRoutes);
 
