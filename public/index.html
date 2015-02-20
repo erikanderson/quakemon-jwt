@@ -2,10 +2,30 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <title>quakemon - earthquake data and alerts</title>
     <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="assets/libs/angular/angular.min.js"></script>
     <script src="assets/libs/angular-route/angular-route.min.js"></script>
+    <script src="app/app.js"></script>
+    <script src="app/controllers/mainCtrl.js"></script>
+    <script src="app/controllers/userCtrl.js"></script>
+    <script src="app/services/authService.js"></script>
+    <script src="app/services/userService.js"></script>
   </head>
-  <body>
+  <body ng-app="quakemon" ng-controller="mainController as main">
+  
+      <nav class="navbar navbar-default" id="mainnav">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/#/"><i class="fa fa-home"></i> Home</a></li>
+        <li ng-if="!main.loggedIn"><a href="/#/login"><i class="fa fa-sign-in"></i>Login</a></li>
+        <li ng-if="!main.loggedIn"><a href="/#/signup"><i class="fa fa-user"></i>Sign Up</a></li>
+        <li ng-if="main.loggedIn"><a href="#" ng-click="main.doLogout()">Logout</a></li>
+      </ul>
+      </nav>
+    <div class="container-fluid">
+      <div ng-view></div>
+    </div>
   </body>
 </html>
